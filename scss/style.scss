@@ -1,3 +1,10 @@
-@import "base/variables";
-@import "libs/reset";
+@import "reset";
+@import "libs/variables";
+@import "libs/mixins";
+@import "global";
+@import "header";
+@import "footer";
+@import "pages/home";
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Raleway:wght@200;400;500;600&display=swap");
+
 /* @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"); */

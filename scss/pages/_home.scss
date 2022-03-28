@@ -1,0 +1,573 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    min-height: 100vh;
+
+    .button {
+        margin-left: 50%;
+
+        @include media($md) {
+            margin-left: 0;
+        }
+    }
+
+    &__social {
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        display: flex;
+        min-width: fit-content;
+        transform: translateX(-50%);
+
+        p {
+            position: relative;
+            margin-right: 10px;
+            padding-right: 30px;
+            color: rgba(255, 255, 255, 0.7);
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 20px;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.7);
+                transform: translateY(-50%);
+            }
+
+            @include media($md) {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+
+        a {
+            width: 24px;
+            height: 24px;
+
+            + a {
+                margin-left: 10px;
+            }
+
+            svg {
+                path {
+                    transition: fill 0.2s;
+                }
+
+                &:hover {
+                    path {
+                        fill: #f93c00;
+                    }
+                }
+
+                @include media($md) {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            @include media($md) {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+.services {
+    padding: 80px 0;
+    color: #000;
+    background-color: #fff;
+
+    h2 {
+        margin-bottom: 15px;
+
+        @include media($xl) {
+            margin-bottom: 25px;
+        }
+
+        @include media($lg) {
+            margin-bottom: 5px;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            margin: 45px 0 0;
+            height: 100%;
+            min-height: 200px;
+            max-width: 350px;
+
+            h4 {
+                margin-bottom: 20px;
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 26px;
+
+                @include media($lg) {
+                    margin-bottom: 15px;
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+
+            p {
+                margin-bottom: auto;
+                color: rgba(#000, 0.8);
+
+                @include media($lg) {
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+
+                @include media($md) {
+                    margin-bottom: 0;
+                }
+            }
+
+            a {
+                margin-top: 20px;
+                width: 80px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            @include media($xl) {
+                margin: 35px 10px 0;
+                max-width: 300px;
+            }
+
+            @include media($lg) {
+                min-height: 180px;
+            }
+
+            @include media($md) {
+                margin: 35px 0 0;
+                min-height: fit-content;
+                max-width: 100%;
+            }
+        }
+
+        @include media($xl) {
+            justify-content: space-around;
+        }
+
+        @include media($md) {
+            flex-direction: column;
+        }
+    }
+
+    @include media($lg) {
+        padding: 60px 0;
+    }
+}
+
+.stack {
+    padding: 100px 0;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        p {
+            max-width: 480px;
+
+            @include media($lg) {
+                margin-bottom: 50px;
+                max-width: 100%;
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+
+        @include media($lg) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__slider {
+        width: 100%;
+        max-width: 380px;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @include media($sm) {
+            max-width: 300px;
+        }
+    }
+
+    &__box {
+        img {
+            margin: 5px 0;
+            max-width: 150px;
+            object-fit: contain;
+
+            @include media($md) {
+                max-width: 120px;
+            }
+        }
+    }
+
+    @include media($lg) {
+        padding: 60px 0;
+    }
+}
+
+.cases {
+    padding: 80px 0;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 400px;
+            max-width: 350px;
+            max-height: 400px;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#000, 0.3);
+            }
+
+            a {
+                z-index: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.2s;
+            }
+
+            h4,
+            p {
+                font-weight: 600;
+                font-size: 28px;
+                line-height: 32px;
+            }
+
+            h4 {
+                margin-bottom: 4px;
+            }
+
+            p {
+                font-family: "Caveat", cursive;
+                font-weight: 500;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            @include media($xl) {
+                min-height: 350px;
+                max-width: 300px;
+                max-height: 350px;
+            }
+
+            @include media($md) {
+                min-width: 280px;
+            }
+        }
+
+        @include media($md) {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow-x: scroll;
+        }
+    }
+
+    @include media($lg) {
+        padding: 60px 0;
+    }
+}
+
+.over {
+    padding: 80px 0;
+    color: #000;
+    background-color: #fff;
+
+    &__img {
+        max-width: 58%;
+
+        @include media($xl) {
+            margin-left: -100px;
+        }
+
+        @include media($lg) {
+            margin-left: -80px;
+        }
+
+        @include media($md) {
+            margin: 0 auto 30px;
+            max-width: 80%;
+        }
+
+        @include media($sm) {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+
+        @include media($md) {
+            flex-direction: column;
+        }
+    }
+
+    &__inner {
+        margin-left: 60px;
+        width: 100%;
+        max-width: 42%;
+
+        h2 {
+            margin-bottom: 40px;
+            text-align: left;
+
+            @include media($lg) {
+                margin-bottom: 25px;
+                font-size: 38px;
+                line-height: 52px;
+            }
+
+            @include media($md) {
+                font-size: 34px;
+                line-height: 48px;
+                text-align: center;
+            }
+        }
+
+        h4 {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+
+            @include media($lg) {
+                margin-bottom: 6px;
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+
+        p {
+            margin-bottom: 18px;
+
+            @include media($lg) {
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+
+        @include media($lg) {
+            margin-left: 40px;
+        }
+
+        @include media($md) {
+            margin-left: 0;
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+    button {
+        margin-top: 25px;
+        color: #fff;
+        background-color: #000;
+
+        &:hover {
+            color: #000;
+        }
+
+        @include media($md) {
+            margin-top: 15px;
+        }
+    }
+
+    @include media($lg) {
+        padding: 60px 0;
+    }
+}
+
+.connect {
+    padding: 100px 0;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        img {
+            max-width: 350px;
+            max-height: 500px;
+            object-fit: cover;
+
+            @include media($lg) {
+                max-width: 300px;
+            }
+
+            @include media($md) {
+                margin-bottom: 30px;
+                width: 100%;
+                max-width: 400px;
+                max-height: 300px;
+                object-position: top;
+            }
+        }
+
+        @include media($md) {
+            flex-direction: column;
+        }
+    }
+
+    &__info {
+        max-width: 520px;
+
+        @include media($lg) {
+            margin-left: 40px;
+        }
+
+        @include media($md) {
+            margin-left: 0;
+            max-width: 100%;
+        }
+    }
+
+    h2 {
+        text-align: left;
+    }
+
+    .form {
+        label {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            width: 100%;
+
+            span {
+                margin-right: 20px;
+                padding: 0 0 5px;
+                width: fit-content;
+                min-width: fit-content;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: rgba(255, 255, 255, 0.7);
+
+                @include media($sm) {
+                    margin: 0 0 10px;
+                }
+            }
+
+            input {
+                padding: 0 0 5px;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                border-top: none;
+                border-right: none;
+                border-bottom: 1px solid rgba(129, 129, 139, 0.4);
+                border-left: none;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22px;
+                color: #fff;
+                background-color: transparent;
+            }
+
+            textarea {
+                display: block;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                border-top: none;
+                border-right: none;
+                border-bottom: 1px solid rgba(129, 129, 139, 0.4);
+                border-left: none;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22px;
+                color: #fff;
+                background-color: transparent;
+                resize: none;
+            }
+
+            @include media($sm) {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+        }
+
+        .label__textarea {
+            flex-direction: column;
+            align-items: flex-start;
+            height: 130px;
+
+            span {
+                margin-bottom: 10px;
+            }
+
+            @include media($sm) {
+                height: 110px;
+            }
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    @include media($lg) {
+        padding: 60px 0;
+    }
+}
