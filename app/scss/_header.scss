@@ -1,0 +1,140 @@
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    padding: 15px 0;
+    background-color: rgba(#1c1c1c, 0.9);
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            z-index: 3;
+
+            img {
+                width: 170px;
+                height: 68px;
+                object-fit: contain;
+
+                @include media($lg) {
+                    width: 150px;
+                    height: 60px;
+                }
+            }
+
+            @include media($lg) {
+                width: 150px;
+            }
+        }
+
+        &__items {
+            display: flex;
+            transition: all 0.5s;
+
+            li {
+                + li {
+                    margin-left: 20px;
+
+                    @include media($md) {
+                        margin-left: 0;
+                    }
+                }
+
+                @include media($md) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            a {
+                font-weight: 500;
+                text-decoration: underline transparent;
+                transition: text-decoration 0.2s;
+
+                &:hover {
+                    text-decoration: underline #f93c00;
+                }
+
+                @include media($lg) {
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+
+            @include media($md) {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                flex-direction: column;
+                align-items: center;
+                padding: 80px 20px 50px;
+                background-color: #000;
+                transform: translateY(-200%);
+            }
+        }
+
+        &__items--active {
+            transform: translateY(0);
+        }
+
+        .header__button {
+            @include media($md) {
+                display: none;
+            }
+        }
+
+        .header__burger {
+            position: relative;
+            display: none;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 22px;
+                height: 2px;
+                background-color: #fff;
+                transform: translate(-50%, -50%);
+            }
+
+            span {
+                position: absolute;
+                left: 0;
+                width: 100%;
+
+                &::before {
+                    top: -8px;
+                }
+
+                &::after,
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    width: 22px;
+                    height: 2px;
+                    background-color: #fff;
+                    transform: translateX(-50%);
+                }
+
+                &::after {
+                    bottom: -8px;
+                }
+            }
+
+            @include media($md) {
+                display: block;
+            }
+        }
+    }
+}
